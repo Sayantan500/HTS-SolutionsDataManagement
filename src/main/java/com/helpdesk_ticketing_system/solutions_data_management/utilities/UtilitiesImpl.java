@@ -4,6 +4,8 @@ import com.helpdesk_ticketing_system.solutions_data_management.entities.Solution
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 @Component
 public class UtilitiesImpl implements Utilities
 {
@@ -25,5 +27,10 @@ public class UtilitiesImpl implements Utilities
     @Override
     public boolean validatePostRequestBody(SolutionDocument solutionDocument) {
         return requestValidation.validatePostRequestBody(solutionDocument);
+    }
+
+    @Override
+    public boolean validateGetRequestQueryParameters(Map<String, String> queryParams) {
+        return requestValidation.validateGetRequestQueryParameters(queryParams);
     }
 }

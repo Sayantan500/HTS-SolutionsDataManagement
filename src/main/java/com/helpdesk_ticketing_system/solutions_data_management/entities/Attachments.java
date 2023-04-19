@@ -1,11 +1,14 @@
 package com.helpdesk_ticketing_system.solutions_data_management.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 public class Attachments
 {
-    @JsonProperty("filename") private String filename;
-    @JsonProperty("url") private String fileUrl;
+    @JsonProperty("filename") @Field(name = "filename")
+    private String filename;
+    @JsonProperty("url") @Field(name = "url")
+    private String fileUrl;
 
     public Attachments() {
     }

@@ -19,4 +19,9 @@ class SolutionsRepositoryImpl implements SolutionsRepository{
     public String save(SolutionDocument solution) throws Exception {
         return database.saveToDb(solution).get_id();
     }
+
+    @Override
+    public SolutionDocument get(String fieldName, Object fieldValue) {
+        return database.getFromDbBy(fieldName,fieldValue, SolutionDocument.class);
+    }
 }
