@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class RequestBodyExceptionHandlers {
+public class RequestExceptionHandlers {
     @ExceptionHandler
     public ResponseEntity<InvalidRequestBodyExceptionResponse> handleBadRequestExceptions(
             InvalidRequestBodyExceptions invalidRequestBodyExceptions){
