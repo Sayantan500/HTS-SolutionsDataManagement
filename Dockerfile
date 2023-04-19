@@ -11,6 +11,7 @@ COPY .mvn/ ./'.mvn'/
 COPY mvnw ./
 RUN ["./mvnw","clean","install","spring-boot:repackage"]
 
+
 #Stage 2 of build --> copying the jar file from previous stage and building the final image
 FROM $java_repo_name:$image_tag_jre
 WORKDIR /app/
