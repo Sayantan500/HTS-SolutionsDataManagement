@@ -1,11 +1,14 @@
 package com.helpdesk_ticketing_system.solutions_data_management.utilities;
 
 import com.helpdesk_ticketing_system.solutions_data_management.entities.SolutionDocument;
+import com.helpdesk_ticketing_system.solutions_data_management.exception_handling.exceptions.InvalidQueryParametersException;
 import com.helpdesk_ticketing_system.solutions_data_management.exception_handling.exceptions.InvalidRequestBodyExceptions;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 @Component
 class RequestValidation
@@ -60,5 +63,19 @@ class RequestValidation
         }
 
         return true;
+    }
+
+    boolean validateGetRequestQueryParameters(Map<String,String > queryParams){
+        if(queryParams!=null &&
+                queryParams.size()==1 &&
+                (queryParams.containsKey("issue_id") || queryParams.containsKey("ticket_id"))
+        ){
+            return true;
+        }
+
+        throw new InvalidQueryParametersException(
+                "Query Parameters Expectations Failed..!",
+                HttpStatus.BAD_REQUEST.value()
+        );
     }
 }

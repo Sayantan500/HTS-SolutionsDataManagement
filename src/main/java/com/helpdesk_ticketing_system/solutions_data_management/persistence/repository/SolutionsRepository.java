@@ -4,4 +4,5 @@ import com.helpdesk_ticketing_system.solutions_data_management.entities.Solution
 
 public interface SolutionsRepository {
     String save(SolutionDocument solution) throws Exception;
+    SolutionDocument get(String fieldName, Object fieldValue);
 }
