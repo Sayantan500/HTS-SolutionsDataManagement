@@ -9,12 +9,12 @@ public class UtilitiesImpl implements Utilities
 {
 
     private final IdGenerator idGenerator;
-    private final RequestBodyValidation requestBodyValidation;
+    private final RequestValidation requestValidation;
 
     @Autowired
-    public UtilitiesImpl(IdGenerator idGenerator, RequestBodyValidation requestBodyValidation) {
+    public UtilitiesImpl(IdGenerator idGenerator, RequestValidation requestValidation) {
         this.idGenerator = idGenerator;
-        this.requestBodyValidation = requestBodyValidation;
+        this.requestValidation = requestValidation;
     }
 
     @Override
@@ -24,6 +24,6 @@ public class UtilitiesImpl implements Utilities
 
     @Override
     public boolean validatePostRequestBody(SolutionDocument solutionDocument) {
-        return requestBodyValidation.validatePostRequestBody(solutionDocument);
+        return requestValidation.validatePostRequestBody(solutionDocument);
     }
 }
