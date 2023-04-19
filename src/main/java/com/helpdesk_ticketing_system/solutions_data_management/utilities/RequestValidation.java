@@ -8,11 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 @Component
-class RequestBodyValidation
+class RequestValidation
 {
     private final Integer MAX_CHARACTER_LIMIT;
 
-    public RequestBodyValidation(@Qualifier("max_character_limit_for_message") Integer maxCharacterLimit) {
+    public RequestValidation(@Qualifier("max_character_limit_for_message") Integer maxCharacterLimit) {
         MAX_CHARACTER_LIMIT = maxCharacterLimit;
     }
 
